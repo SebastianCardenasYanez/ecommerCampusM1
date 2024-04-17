@@ -11,8 +11,9 @@ body{
 }
 
 .header {
-    background: red;
+    /* background: red; */
     padding: var(--space-layout-padding-lr);
+    margin-top: 5px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -36,7 +37,7 @@ body{
 
 }
 .nav{
-    background: red;
+    /* background: red; */
     display: flex;
     padding: var(--space-layout-padding-lr);
     flex-direction: row;
@@ -46,7 +47,7 @@ body{
 }
 
 .nav__search{
-    background: purple;
+    /* background: purple; */
     position: relative;
 }
 
@@ -85,6 +86,84 @@ body{
 
 }
 
-.main{
+.main {
+    /* background: red; */
+    padding: var(--space-layout-padding-lr);
+    margin-top: 15px;
+}
+.main__nav {
+    /* background: violet; */
+    padding: 10px; 
+}
+.nav__ul{
+    /* background: darkgray; */
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    overflow-x: scroll;
+    /* padding-bottom: 5px; */
+}
+
+.nav__ul li{
+    list-style: none;
+}
+
+.nav__ul li a {
+    /* background: orange; */
+    width: 105px;
+    height: 35px;
+    font-family: "EncodeSans-Medium";
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+    border-radius: 8px;
+    background: var(--color-1);
+    color: var(--color-5);
+    border: 1px solid var(--color-3);
+}
+
+.nav__ul li a:hover{
+    /* background: var(--color-3); */
+    filter: invert(1);
+    transition: 0.25s;
+}
+
+
+.footer {
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    padding: var(--space-layout-padding-lr);
 
 }
+.footer__ul {
+
+    background: var(--color-2);
+    height: 60px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border-radius: 40px;
+
+}
+.footer__ul li{
+    list-style: none;
+    background: var(--color-1);
+    border-radius: 100%;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer__ul li a {
+    width: 24px;
+    height: 24px;
+}
+
