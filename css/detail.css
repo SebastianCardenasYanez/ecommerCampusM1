@@ -116,6 +116,55 @@
     padding-bottom: 10px;
 }
 
+
+.color{
+    display: flex;
+}
+
+.circle_color1{
+    width: 26px;
+    height: 26px;
+    background: var(--color-3); 
+    border-radius: 100%;
+    margin: 2px;
+}
+
+.circle_color2{
+    width: 26px;
+    height: 26px;
+    background: var(--color-2); 
+    border-radius: 100%;
+    margin: 2px;
+}
+
+.circle_color3{
+    width: 26px;
+    height: 26px;
+    background: var(--color-4); 
+    border-radius: 100%;
+    margin: 2px;
+}
+
+
+
+.size{ 
+    display: flex;
+}
+
+.circle_size{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 26px;
+    height: 26px;
+    /* background: red; */
+    border-radius: 100%;
+    border: 0.5px solid var(--color-3);
+    margin: 2px;
+}
+
+
+
 .footer {
     position: fixed;
     bottom: 10px;
