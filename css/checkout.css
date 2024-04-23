@@ -109,6 +109,44 @@
     margin: var(--space-layout-padding-t);
 }
 
+
+
+.section__card {
+    margin-bottom: 15px;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+.dropdown__button {
+    background-color: var(--color-3);
+    border-radius: 5px;
+    width: 100%;
+    color: var(--color-1);
+    padding: 16px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;   
+}
+.shopping__card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.shopping__option {
+    
+}
+.dropdown__content {
+}
+
+
+
+
+
+
 .article__cost {
     display: flex;
     justify-content: space-between;
