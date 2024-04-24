@@ -115,11 +115,9 @@
 
 .nav__ul li a:hover{
     filter: invert(1);
-    transition: 0.25s;
+    transition: 0.4s;
+    transform: scale(1.05);
 }
-
-
-
 
 
 .main__article{
