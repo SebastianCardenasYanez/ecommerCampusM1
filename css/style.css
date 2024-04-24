@@ -14,11 +14,12 @@
     align-items: center;
     height: 60px;
 }
-.header__information{
-    /* background: green; */
+.header__information p{
+    color: var(--color-2);
 }
 .header__information span{
     font-family: "EncodeSans-Bold";
+    color: var(--color-2);
 }
 .header__login{
     /* background: violet; */
@@ -52,6 +53,7 @@
     padding-left: 2.5rem;
     padding-right: 1.5rem;
     border: 1px solid var(--color-3);
+    color: var(--color-3);
 }
 .search__icon{
     position: absolute;

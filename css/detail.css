@@ -55,6 +55,7 @@
 
 .detail__head h1{
     font-family: "EncodeSans-SemiBlod";
+    color: var(--color-2);
 }
 
 .product__select {
@@ -66,6 +67,7 @@
 
 .product__select span{
     font-size: "EncodeSans-Blod";
+    color: var(--color-2);
 }
 
 .detail__score {
@@ -114,6 +116,7 @@
 .product__color h5, 
 .product__size h5{
     padding-bottom: 10px;
+    color: var(--color-2);
 }
 
 
