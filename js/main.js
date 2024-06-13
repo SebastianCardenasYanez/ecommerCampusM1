@@ -8,7 +8,7 @@ let nav__ul = document.querySelector(".nav__ul");
 
 addEventListener("DOMContentLoaded", async e=>{
     if(!localStorage.getItem("getAllCategory")) localStorage.setItem("getAllCategory", JSON.stringify(await getAllCategory()));
-    nav__ul.innerHTML = await menuListCategoryIndex(JSON.parse(localStorage.getItem("getALlCategory")));
+    nav__ul.innerHTML = await menuListCategoryIndex(JSON.parse(localStorage.getItem("getAllCategory")));
 })
 
 input__search.addEventListener("change", async e => {

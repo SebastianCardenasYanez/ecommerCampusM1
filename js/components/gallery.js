@@ -5,7 +5,7 @@ export const galleryIndex = (res, category) => {
         plantilla += /*html*/`
         <section>
            <div class="section__front_page">
-               <a href="views/detail.html">
+               <a href="views/detail.html?id=${value.asin}">
                    <img src="${value.product_photo}">
                </a>
                <img src="storage/img/heart.svg">
