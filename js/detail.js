@@ -39,4 +39,22 @@ addEventListener("DOMContentLoaded", async(e)=>{
         viewMore.textContent = complet;
     })
 
+    
+    // mas y menos
+    let decreaseButton = document.querySelector("#decreaseQuantity");
+        let increaseButton = document.querySelector("#increaseQuantity");
+        let quantitySpan = document.querySelector("#quantity");
+
+        decreaseButton.addEventListener('click', async e => {
+        let quantity = parseInt(quantitySpan.textContent);
+        if(quantity > 1){
+            quantitySpan.textContent = quantity - 1;
+        };
+        });
+
+        increaseButton.addEventListener('click', async e => {
+        let quantity = parseInt(quantitySpan.textContent);
+        quantitySpan.textContent = quantity + 1;
+        });
+
 })
