@@ -51,21 +51,49 @@ addEventListener("DOMContentLoaded", async(e)=>{
 
         decreaseButton.addEventListener('click', async e => {
         let quantity = parseInt(quantitySpan.textContent);
+        if (info.data.product_price !==  null) {
         let precioentero = parseFloat(info.data.product_price.replace('$',''))
+        let precioOriginal = parseFloat(info.data.product_original_price.replace('$',''))
         if(quantity > 1){
             quantitySpan.textContent = quantity - 1;
             quantity = parseInt(quantitySpan.textContent);
-            precio__total.innerHTML = `Add to Cart $${quantity * precioentero}`
+            if (info.data.product_original_price !== null){
+                precio__total.innerHTML =/*html*/`
+                    <span id= "precio__total" >Add to Cart $${quantity * precioentero}<del><sub>$${quantity * precioOriginal}</sub></del></span>
+            `}else if (info.data.product_price ==  null) {
+                    precio__total.innerHTML = /*html*/`
+                    <span>Add to Cart No Price</span>
+                    `}
+            else{
+                    precio__total.innerHTML = /*html*/`
+                    <span id= "precio__total">Add to Cart $${quantity * precioentero}</span>`
+                }
         };
+        }else {
+            if(quantity > 1){
+            quantitySpan.textContent = quantity - 1;
+        };}
         });
 
         increaseButton.addEventListener('click', async e => {
         let quantity = parseInt(quantitySpan.textContent);
+        if (info.data.product_price !==  null) {
         let precioentero = parseFloat(info.data.product_price.replace('$',''))
+        let precioOriginal = parseFloat(info.data.product_original_price.replace('$',''))
         quantitySpan.textContent = quantity + 1;
         quantity = parseInt(quantitySpan.textContent);
-        precio__total.innerHTML = `Add to Cart $${quantity * precioentero}`
-        
+        if (info.data.product_price ==  null) {
+            precio__total.innerHTML = /*html*/`
+                <span>Add to Cart No Price</span>`
+        }
+        else if (info.data.product_original_price !== null){
+            precio__total.innerHTML =/*html*/`
+                <span id= "precio__total" >Add to Cart $${quantity * precioentero}<del><sub>$${quantity * precioOriginal}</sub></del></span>
+        `}
+        else{
+                precio__total.innerHTML = /*html*/`
+                        <span id= "precio__total">Add to Cart $${quantity * precioentero}</span>`
+        }
+        }else return quantitySpan.textContent = quantity + 1;
         });
-
-})
+        });
