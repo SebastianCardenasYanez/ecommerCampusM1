@@ -7,6 +7,9 @@ let main__section_gallery = document.querySelector("#main__section__gallery");
 let main__section__title = document.querySelector("#main__section__title");
 let mainsectiondescription = document.querySelector("#main__section__description");
 let footer__ul = document.querySelector(".footer__ul");
+let links = document.querySelectorAll('.circle_size');
+const colors = document.querySelectorAll('#circle__color');
+
 
 addEventListener("DOMContentLoaded", async(e)=>{
     let params = new URLSearchParams(location.search);
@@ -18,6 +21,24 @@ addEventListener("DOMContentLoaded", async(e)=>{
     mainsectiondescription.innerHTML = await descriptionProductDetail(info);
     console.log(priceDetails(info))
     footer__ul.innerHTML = await priceDetails(info);
+
+    // tallas
+    links.forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            links.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+        });
+    });
+
+    // colores
+    colors.forEach(co => {
+        co.addEventListener('click', (event) => {
+            event.preventDefault();
+            colors.forEach(l => l.classList.remove('active'));
+            co.classList.add('active');
+        });
+    });
 
     //main__section_gallery.innerHTML = await galleryCategory(JSON.parse(localStorage.getItem(id)))
     // let {data} = res;

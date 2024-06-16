@@ -121,6 +121,7 @@
 .product__color, 
 .product__size {
     margin-top: 5px;
+    margin-bottom: 80px;
     font-family: "EncodeSans-Blod";
 }
 
@@ -133,6 +134,12 @@
 
 .color{
     display: flex;
+}
+
+.color div:hover,
+.color div.active{
+    transition: 0.5s;
+    border: 3px solid rgb(0, 255, 157);
 }
 
 .circle_color1{
@@ -174,11 +181,14 @@
     /* background: red; */
     border-radius: 100%;
     border: 0.5px solid var(--color-3);
+    background-color: white;
     margin: 2px;
 }
-.size div:hover{
+.size div:hover,
+.size div.active{
     transition: 0.4s;
     transform: scale(0.9);
+    filter: invert(1);
 }
 
 
