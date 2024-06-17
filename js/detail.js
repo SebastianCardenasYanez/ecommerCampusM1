@@ -57,11 +57,12 @@ addEventListener("DOMContentLoaded", async(e)=>{
     let optionViewMore = document.querySelector("#leerMasOption");
     let viewMore = document.querySelector("#informationProduct");
 
-
-    optionViewMore.addEventListener('click', async (e) => {
-        let complet = info.data.product_description;
-        viewMore.textContent = complet;
-    })
+    if (optionViewMore !== null) {
+        optionViewMore.addEventListener('click', async (e) => {
+            let complet = info.data.product_description;
+            viewMore.textContent = complet;
+        })
+    }
 
     
     // mas y menos
@@ -75,10 +76,10 @@ addEventListener("DOMContentLoaded", async(e)=>{
         if (info.data.product_price !==  null) {
         let precioentero = parseFloat(info.data.product_price.replace('$',''))
         if (info.data.product_original_price !== null){
+            let precioOriginal = parseFloat(info.data.product_original_price.replace('$',''));
             if(quantity > 1){
                 quantitySpan.textContent = quantity - 1;
                 quantity = parseInt(quantitySpan.textContent);
-                let precioOriginal = parseFloat(info.data.product_original_price.replace('$',''))
                 precio__total.innerHTML =/*html*/`
                     <span id= "precio__total" >Add to Cart $${quantity * precioentero}<del><sub>$${quantity * precioOriginal}</sub></del></span>
             `}

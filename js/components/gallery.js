@@ -39,3 +39,27 @@ export const galleryCategory = ({data: {product_photos}} = res) => {
         </div>
     `   
 };
+
+export const galleryCheckout = async ({data: dataUpdate} = res) => {
+    console.log(dataUpdate)
+    return /*html*/`
+            <article class="details__product">
+                <div class="product__imagen">
+                    <img src="${dataUpdate.product_photo}">
+                </div>
+                <div class="product__description">
+                    <h3>${dataUpdate.product_title}</h3>
+                    <small>${dataUpdate.category_path[0]}</small>
+                    <span>${dataUpdate.product_price}</span>
+                </div>
+                <div class="product__custom">
+                    <img src="../storage/img/option.svg">
+                    <div class="product__select">
+                        <img src="../storage/img/minusAlone.svg">
+                        <span>1</span>
+                        <img src="../storage/img/plusAlone.svg">
+                    </div>
+                </div>
+            </article>
+            `
+};
