@@ -115,4 +115,14 @@ addEventListener("DOMContentLoaded", async(e)=>{
             `}
         }else return quantitySpan.textContent = quantity + 1;
         });
-        });
+        
+        let linkCheck = document.querySelector("#linkCheck");
+
+        linkCheck.addEventListener("click", async e => {
+            let check = JSON.parse(localStorage.getItem(id));
+            check["checkout"] = true
+            localStorage.setItem(id, JSON.stringify(check));
+            console.log(localStorage.getItem(id));
+        })
+    
+    });
