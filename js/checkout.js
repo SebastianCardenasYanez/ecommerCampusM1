@@ -1,4 +1,4 @@
-import {getProductId} from "./module/checkout.js";
+import {getProductId, getProductsBuy} from "./module/checkout.js";
 import { galleryCheckout } from "./components/gallery.js";
 
 let checkout__details = document.querySelector(".checkout__details");
@@ -8,5 +8,7 @@ addEventListener("DOMContentLoaded", async(e)=>{
     let id = params.get('id');
     if(!localStorage.getItem(id)) localStorage.setItem(id, JSON.stringify(await getProductId({id})));
     let info = JSON.parse(localStorage.getItem(id));
-    checkout__details.innerHTML = await galleryCheckout(info);
+    let res = await getProductsBuy();
+    checkout__details.innerHTML = await galleryCheckout(res);
+
 });

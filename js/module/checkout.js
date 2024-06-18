@@ -11,3 +11,11 @@ export const getProductId = async({id:idCategory})=>{
     let data = res.json();
     return data;
 }
+
+export const getProductsBuy = async()=>{
+    let products = [];
+    Object.keys(localStorage).forEach(keys => {
+        products.push(JSON.parse(localStorage.getItem(keys))) 
+    })
+    return products;
+};
