@@ -42,14 +42,37 @@ export const galleryCategory = ({data: {product_photos}} = res) => {
 
 export const galleryCheckout = async ({data: dataUpdate} = res) => {
     console.log(dataUpdate)
+    let createDescripHTML = async() => {
+        let description = await dataUpdate.product_title;
+        let trunDescription = description;
+        if (description.length > 10) {
+            trunDescription = description.substring(0, 19) + '...';
+        }
+        return `${trunDescription}`;
+    }
+    let create = await createDescripHTML();
+    let category = () => {
+        let catg;
+        if (dataUpdate.category_path.length > 0) {
+            let firtsCategory = dataUpdate.category_path[0];
+            if (typeof(firtsCategory.name) !== "undefined") {
+                catg = firtsCategory.name;
+            }
+        } else {
+            catg = "";
+        }
+        return catg;
+    };
+    
+    let contentFuction = await category();
     return /*html*/`
             <article class="details__product">
                 <div class="product__imagen">
                     <img src="${dataUpdate.product_photo}">
                 </div>
                 <div class="product__description">
-                    <h3>${dataUpdate.product_title}</h3>
-                    <small>${dataUpdate.category_path[0]}</small>
+                    <h3 id="title__description">${create}</h3>
+                    <small>${contentFuction}</small>
                     <span>${dataUpdate.product_price}</span>
                 </div>
                 <div class="product__custom">
@@ -61,5 +84,4 @@ export const galleryCheckout = async ({data: dataUpdate} = res) => {
                     </div>
                 </div>
             </article>
-            `
-};
+            `};

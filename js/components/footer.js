@@ -14,7 +14,7 @@ export const priceDetails = async({data: dataUpdate} = res) => {
     if (dataUpdate.product_original_price ==  null){
         plantilla += /*html*/`
     <li>    
-        <a href="checkout.html?id=${dataUpdate.asin}">
+        <a id="linkCheck" href="checkout.html?id=${dataUpdate.asin}">
             <img src="../storage/img/shopping-cart.svg">
             <span id= "precio__total">Add to Cart $${dataUpdate.product_price}</span>
         </a>
