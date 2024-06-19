@@ -120,6 +120,10 @@
 }
 .product__color, 
 .product__size {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: repeat(auto-fit);
+    grid-auto-flow: row;
     margin-top: 5px;
     margin-bottom: 80px;
     font-family: "EncodeSans-Blod";
@@ -169,7 +173,10 @@
 
 
 .size{ 
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit);
+    grid-auto-flow: column;
+    gap: 5px;
 }
 
 .circle_size{

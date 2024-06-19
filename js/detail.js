@@ -1,5 +1,5 @@
 import { galleryCategory } from "./components/gallery.js";
-import { titleProductDetail, descriptionProductDetail, sizeProduct} from "./components/section.js";
+import { titleProductDetail, descriptionProductDetail, variationsProduct, sizeProduct} from "./components/section.js";
 import { getProductId } from "./module/detail.js";
 import {priceDetails} from "./components/footer.js";
 
@@ -9,7 +9,8 @@ let mainsectiondescription = document.querySelector("#main__section__description
 let footer__ul = document.querySelector(".footer__ul");
 let links = document.querySelectorAll('.circle_size');
 const colors = document.querySelectorAll('#circle__color');
-let size = document.querySelector(".product__custom")
+let variations = document.querySelector(".product__custom");
+
 
 
 addEventListener("DOMContentLoaded", async(e)=>{
@@ -22,8 +23,10 @@ addEventListener("DOMContentLoaded", async(e)=>{
     mainsectiondescription.innerHTML = await descriptionProductDetail(info);
     console.log(priceDetails(info))
     footer__ul.innerHTML = await priceDetails(info);
-    size.innerHTML = await sizeProduct(info)
+    variations.innerHTML = await variationsProduct(info)
 
+    let size = document.querySelector('.product__size')
+    size.innerHTML = await sizeProduct(info)
 
 
     // tallas
