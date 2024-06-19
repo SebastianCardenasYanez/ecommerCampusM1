@@ -42,12 +42,12 @@ export const galleryCategory = ({data: {product_photos}} = res) => {
 
 export const galleryCheckout = async (res) => {
     let plantilla = "";
+    const sum = []
     res.forEach((dict) => {
         console.log(dict);
         if (dict.checkout) {
             let {data} = dict
             let descripcion = (data.product_title).substring(0, 17) + '...';
-            console.log(descripcion)
             let category = () => {
                 let catg;
                 if (data.category_path.length > 0) {
@@ -69,7 +69,7 @@ export const galleryCheckout = async (res) => {
                         <div class="product__description">
                             <h3 id="title__description">${descripcion}</h3>
                             <small>${contentFuction}</small>
-                            <span>${data.product_price}</span>
+                            <span class="price__product" >${data.product_price}</span>
                         </div>
                         <div class="product__custom">
                             <img src="../storage/img/option.svg">
@@ -86,46 +86,17 @@ export const galleryCheckout = async (res) => {
         return plantilla;
     };
 
-    // let createDescripHTML = async() => {
-    //     let description = await data.product_title;
-    //     let trunDescription = description;
-    //     if (description.length > 10) {
-    //         trunDescription = description.substring(0, 19) + '...';
-    //     }
-    //     return `${trunDescription}`;
-    // }
-    // let create = await createDescripHTML();
-    // let category = () => {
-    //     let catg;
-    //     if (data.category_path.length > 0) {
-    //         let firtsCategory = data.category_path[0];
-    //         if (typeof(firtsCategory.name) !== "undefined") {
-    //             catg = firtsCategory.name;
-    //         }
-    //     } else {
-    //         catg = "";
-    //     }
-    //     return catg;
-    // };
-    
-    // let contentFuction = await category();
-    // return /*html*/`
-    //         <article class="details__product">
-    //             <div class="product__imagen">
-    //                 <img src="${data.product_photo}">
-    //             </div>
-    //             <div class="product__description">
-    //                 <h3 id="title__description">${create}</h3>
-    //                 <small>${contentFuction}</small>
-    //                 <span>${data.product_price}</span>
-    //             </div>
-    //             <div class="product__custom">
-    //                 <img src="../storage/img/option.svg">
-    //                 <div class="product__select">
-    //                     <img src="../storage/img/minusAlone.svg">
-    //                     <span>1</span>
-    //                     <img src="../storage/img/plusAlone.svg">
-    //                 </div>
-    //             </div>
-    //         </article>
-    //         `};
+export const priceCheckout = async (res) => {
+    const sum = []
+    res.forEach((dict) => {
+        console.log(dict);
+        if (dict.checkout) {
+            let {data} = dict
+            let num = parseFloat(data.product_price.replace('$',''))
+            console.log(num);
+            sum.push(num);
+            console.log(sum)
+        }
+    })
+    return sum;
+}; 

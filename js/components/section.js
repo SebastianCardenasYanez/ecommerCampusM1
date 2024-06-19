@@ -37,3 +37,46 @@ export const descriptionProductDetail = async ({data:dataUpdate} = res) => {
         `;
     }else return null;
     };
+
+export const sumPrice = async array => {
+    let posi = 1;
+    for(let i = 0; i < array.length; i++){
+    posi += array[i]
+    };
+    var sumaPrice =posi.toFixed(2)
+    return sumaPrice
+}
+
+export const checkoutPrice = async (res, totalprice)=>{
+    let plantilla = "";
+    console.log(res);
+    const check = []
+    res.forEach((item) => {
+        if (item.checkout) {
+            check.push(item.checkout) ;
+            let items = 0;
+            for (let i = 0; i < check.length; i++) {
+                items ++;
+            }
+            console.log(items);
+            return plantilla = /*html*/`
+            <article id="total__items" class="article__cost">
+                <p>Total (${items})</p>
+                <strong>$${totalprice}</strong>
+            </article>
+            <article id="shipping__fee" class="article__cost">
+                <p>Shipping Fee</p>
+                <strong>$.0.000</strong>
+            </article>
+            <br><hr>
+            <article id="sub__total" class="article__cost">
+                <p>Sub Total <p>
+                <strong>$${totalprice}</strong>
+            </article>
+            `
+        }
+
+    });
+    console.log(plantilla);
+    return plantilla;
+}
