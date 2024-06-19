@@ -17,7 +17,14 @@ addEventListener("DOMContentLoaded", async(e)=>{
     let res = await getProductsBuy();
     checkout__details.innerHTML = await galleryCheckout(res);
     
-    
+    document.getElementById('payButton').addEventListener('click', function(event) {
+        event.preventDefault();
+        var alert = document.getElementById('alert');
+        alert.style.display = 'flex'; // Muestra la alerta
+        setTimeout(function() {
+            alert.style.display = 'none';
+        }, 2000); // La alerta desaparecerá después de 5 segundos
+    });
     
     
     //suma de los productos

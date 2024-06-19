@@ -211,6 +211,32 @@
     margin-top: 14px;
 }
 
+.alert {
+    padding: 20px;
+    background-color: var(--color-4); /* Verde */
+    color: white;
+    margin-bottom: 15px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.alert .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 1s;
+}
 
 .footer {
     position: fixed;

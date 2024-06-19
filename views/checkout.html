@@ -87,12 +87,16 @@
         <footer class="footer"> 
             <ul class="footer__ul">
                 <li>
-                    <a href="#">
+                    <a id="payButton" href="#">
                         <span>Pay</span>
                     </a>
                 </li>
             </ul>
         </footer>
+        <div id="alert" class="alert" style="display: none;">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            Se realizó el pago con éxito.
+        </div>
     </footer>
 </body>
 </html>
