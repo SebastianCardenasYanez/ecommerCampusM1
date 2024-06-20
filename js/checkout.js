@@ -34,6 +34,23 @@ addEventListener("DOMContentLoaded", async(e)=>{
     console.log(totalprice);
     
     costs.innerHTML = await checkoutPrice(res, totalprice);
+
+    let decreaseButton = document.querySelector("#minus");
+    let increaseButton = document.querySelector("#plus");
+    let quantitySpan = document.querySelector("#quantity");
+
+    decreaseButton.addEventListener('click', async e => {
+        let quantity = parseInt(quantitySpan.textContent);
+        if(quantity > 1){
+            quantitySpan.textContent = quantity - 1;
+        }
+    })
+
+    increaseButton.addEventListener('click', async e => {
+        let quantity = parseInt(quantitySpan.textContent);
+        quantitySpan.textContent = quantity + 1;
+    })
+
     // const updateTotal = async() => {
         //     console.log(priceElements); 
         //     let total = 0;

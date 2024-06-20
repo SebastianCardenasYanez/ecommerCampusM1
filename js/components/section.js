@@ -101,7 +101,7 @@ export const variationsProduct = async ({data:dataUpdate} = res) => {
 
 
 export const sumPrice = async array => {
-    let posi = 1;
+    let posi = 0;
     for(let i = 0; i < array.length; i++){
     posi += array[i]
     };

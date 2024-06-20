@@ -74,9 +74,9 @@ export const galleryCheckout = async (res) => {
                         <div class="product__custom">
                             <img src="../storage/img/option.svg">
                             <div class="product__select">
-                                <img src="../storage/img/minusAlone.svg">
-                                <span>1</span>
-                                <img src="../storage/img/plusAlone.svg">
+                                <img id="minus" src="../storage/img/minusAlone.svg">
+                                <span id="quantity" >1</span>
+                                <img id="plus" src="../storage/img/plusAlone.svg">
                             </div>
                         </div>
                     </article>
