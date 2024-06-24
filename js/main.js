@@ -5,6 +5,7 @@ import { getAllProductName, getAllCategory, getAllClothesUnder10} from "./module
 let input__search = document.querySelector("#input__search");
 let main__article = document.querySelector(".main__article");
 let nav__ul = document.querySelector(".nav__ul");
+let totalItems = document.querySelector('#totalItems');
 
 addEventListener("DOMContentLoaded", async e=>{
     if(!localStorage.getItem("getAllCategory")) localStorage.setItem("getAllCategory", JSON.stringify(await getAllCategory()));
@@ -27,3 +28,16 @@ input__search.addEventListener("change", async e => {
     let res = await getAllProductName(data)
     main__article.innerHTML = galleryIndex(res, params.get('id'));
 });
+
+let keys = Object.keys(localStorage);
+let items = 0
+keys.forEach(key => {
+    let local = JSON.parse(localStorage.getItem(key))
+    console.log(local);
+    if(local.checkout){
+        items++
+    }
+    if(items !== 0){
+        totalItems.textContent = items
+    }
+})
