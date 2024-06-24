@@ -112,7 +112,7 @@ export const variationsProduct = async ({data:dataUpdate} = res) => {
 };
 
 
-export const sumPrice = async array => {
+export const sumPrice = array => {
     let posi = 0;
     for(let i = 0; i < array.length; i++){
     posi += array[i]
@@ -121,7 +121,7 @@ export const sumPrice = async array => {
     return sumaPrice
 }
 
-export const checkoutPrice = async (res, totalprice)=>{
+export const checkoutPrice = (res, totalprice)=>{
     let plantilla = "";
     console.log(res);
     const check = []
@@ -135,7 +135,7 @@ export const checkoutPrice = async (res, totalprice)=>{
             console.log(items);
             return plantilla = /*html*/`
             <article id="total__items" class="article__cost">
-                <p>Total (${items})</p>
+                <p class= "total">Total (${items})</p>
                 <strong>$${totalprice}</strong>
             </article>
             <article id="shipping__fee" class="article__cost">

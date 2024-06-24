@@ -28,28 +28,68 @@ addEventListener("DOMContentLoaded", async(e)=>{
     
     
     //suma de los productos
-    let price = await priceCheckout(res);
+    let price = priceCheckout(res);
     
-    let totalprice = await sumPrice(price);
+    let totalprice = sumPrice(price);
     console.log(totalprice);
     
-    costs.innerHTML = await checkoutPrice(res, totalprice);
+    costs.innerHTML =  checkoutPrice(res, totalprice);
 
-    let decreaseButton = document.querySelector("#minus");
-    let increaseButton = document.querySelector("#plus");
-    let quantitySpan = document.querySelector("#quantity");
+    let decreaseButton = document.querySelectorAll(".minus");
+    let increaseButton = document.querySelectorAll(".plus");
+    let quantitySpan = document.querySelector(".quantity");
 
-    decreaseButton.addEventListener('click', async e => {
-        let quantity = parseInt(quantitySpan.textContent);
-        if(quantity > 1){
-            quantitySpan.textContent = quantity - 1;
-        }
+    decreaseButton.forEach(decrase => {
+        decrase.addEventListener('click', async e => {
+                console.log(e.target);
+                let parentArticle = e.target.closest('div');
+                let totalString = (parentArticle.closest('main').querySelector(".total"));
+                let totalnum = parseFloat(totalString.textContent.replace('Total (','').replace(")",""))
+                console.log(totalnum);
+                totalnum--
+                totalString.textContent = `Total (${totalnum--})`
+                let money = parseFloat(parentArticle.closest('article').querySelector('.price__product').textContent.replace('$',''))
+                let index = price.findIndex(item => {
+                    return item === money;
+                })
+                if (index !== -1) {
+                    price.splice(index, 1);
+                }
+                console.log(price);
+                console.log(parentArticle)
+                totalprice = sumPrice(price);
+                console.log(totalprice)
+                costs.innerHTML =  checkoutPrice(res, totalprice);
+                console.log(parentArticle.querySelector('span'))
+                let span = parentArticle.querySelector('span')
+                let quantityfy = parseInt(span.textContent);
+                if(quantityfy > 1){
+                    span.textContent = quantityfy - 1;
+                }
+
+        })
     })
 
-    increaseButton.addEventListener('click', async e => {
-        let quantity = parseInt(quantitySpan.textContent);
-        quantitySpan.textContent = quantity + 1;
+    increaseButton.forEach(increase => {
+        increase.addEventListener('click', async e => {
+                let parentArticle = e.target.closest('div');
+                let totalString = (parentArticle.closest('main').querySelector(".total"));
+                console.log(totalString);
+                let totalnum = parseFloat(totalString.textContent.replace('Total (','').replace(")",""))
+                console.log(totalnum);
+                totalnum++
+                totalString.textContent = `Total (${totalnum++})`
+                let money = parseFloat(parentArticle.closest('article').querySelector('.price__product').textContent.replace('$',''))
+                price.push(money);
+                totalprice = sumPrice(price);
+                costs.innerHTML =  checkoutPrice(res, totalprice);
+                console.log(price);
+                let span = parentArticle.querySelector('span')
+                let quantityfy = parseInt(span.textContent);
+                span.textContent = quantityfy + 1;
+        })
     })
+
 
     // const updateTotal = async() => {
         //     console.log(priceElements); 

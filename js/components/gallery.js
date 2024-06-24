@@ -74,9 +74,9 @@ export const galleryCheckout = async (res) => {
                         <div class="product__custom">
                             <img src="../storage/img/option.svg">
                             <div class="product__select">
-                                <img id="minus" src="../storage/img/minusAlone.svg">
-                                <span id="quantity" >1</span>
-                                <img id="plus" src="../storage/img/plusAlone.svg">
+                                <img class="minus" src="../storage/img/minusAlone.svg">
+                                <span class="quantity" >1</span>
+                                <img class="plus" src="../storage/img/plusAlone.svg">
                             </div>
                         </div>
                     </article>
@@ -86,7 +86,7 @@ export const galleryCheckout = async (res) => {
         return plantilla;
     };
 
-export const priceCheckout = async (res) => {
+export const priceCheckout = (res) => {
     const sum = []
     res.forEach((dict) => {
         console.log(dict);
