@@ -45,9 +45,21 @@ export const sizeProduct = async ({data:dataUpdate} = res) => {
     for (let i = 0; i < size.length; i++){
         let sizes  =size[i].value
         console.log(sizes)
-        plantilla += /*html*/`
-        <div class="circle_size">${sizes}</div>
-        `
+        if (sizes == "Small" || sizes == "Medium" ||sizes == "Large") {
+            plantilla += /*html*/`
+            <div class="circle_size">${sizes.substring(0, 1)}</div>
+            `
+        }
+        if (sizes.length > 7) {
+            plantilla += /*html*/`
+            <div class="circle_size">${sizes.substring(0, 4).replace('-', '').replace(' ','')}</div>
+            `
+        }else {
+            plantilla += /*html*/`
+            <div class="circle_size">${sizes.substring(0, 3).replace('-', '').replace(' ','')}</div>
+            `
+        }
+
     }
     console.log(plantilla)
     return plantilla
